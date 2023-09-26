@@ -26,6 +26,9 @@ def image_collect(config,out_file_xcs,out_file_collab_nodes,out_file_project_siz
 
   epochStart='now-90d'
   epochFinish='now'
+  
+  epochStartLastMonth='1690844400000'
+  epochFinishLastMonth='1693522799000'
 
   # All XCS over last 90 days
   get_url_xcs= config["grafana"]["url"]+"/" \
@@ -62,7 +65,7 @@ def image_collect(config,out_file_xcs,out_file_collab_nodes,out_file_project_siz
             + config["project_size_last_month"]["id"] + "/" \
             + config["project_size_last_month"]["name"] \
             + "?orgId=" + config["grafana"]["orgid"] \
-            + "&from=" + epochStart + "&to=" + epochFinish + "&theme=light&panelId=" \
+            + "&from=" + epochStartLastMonth + "&to=" + epochFinishLastMonth + "&theme=light&panelId=" \
             + config["project_size_last_month"]["panel_id"] \
             + "&width="  + config["grafana"]["width"] + "&height=" + config["grafana"]["height"] \
             + "&tz=" + config["grafana"]["tz"]
