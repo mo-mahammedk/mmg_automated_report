@@ -1,0 +1,2 @@
+- Tuesday 23rd January 2024 09:00 - 11:00 GMT - monthly security patching of the Monsoon2 post-processor server may need a reboot and associated twenty minutes of unavailability (CHG0111191).
+- Wednesday 24th January 2024 10:00 - 12:00 GMT - monthly security patching will mean MASS is unavailable during this period (CHG0111062).
