@@ -2,6 +2,7 @@
 from docx import Document
 from docx.shared import Cm, Pt
 from friday import friday, worded
+import getpass
 
 document = Document()
 style = document.styles['Normal']
@@ -122,8 +123,20 @@ summary.bold = True
 summary.underline = True
 
 # Service bullet points - traffic lights
+rag_status = ('Red', 'Amber', 'Green')
+
+
+monsoon_input = input('Select a RAG status for Monsoon - Red, Amber or Green: ')
+if monsoon_input not in rag_status:
+    raise Exception('Option not available')
+
+mass_input = input('Select a RAG status for MASS - Red, Amber or Green: ')
+if mass_input not in rag_status:
+    raise Exception('Option not available')
+
+    
 monsoon = document.add_paragraph().add_run(
-    '• Monsoon2 service is . \n• MASS service is .')
+    f'• Monsoon2 service is {monsoon_input}. \n• MASS service is {mass_input}.')
 monsoon.font.name = 'Calibri (Body)'
 monsoon.font.size = Pt(11)
 
@@ -135,12 +148,27 @@ document.add_paragraph().add_run(
     '')
 
 # Signature
-ending = document.add_paragraph().add_run(
-    'Mahammed Kassam \nMonsoon Collaboration Team Member')
-ending.font.name = 'Calibri (Body)'
-ending.font.size = Pt(11)
 
-    
+
+if getpass.getuser() == 'mkassam':
+    ending = document.add_paragraph().add_run(
+        'Mahammed Kassam \nMonsoon Collaboration Team Member')
+    ending.font.name = 'Calibri (Body)'
+    ending.font.size = Pt(11)
+elif getpass.getuser() == 'itrm':
+    ending = document.add_paragraph().add_run(
+        'Roger Milton \nMonsoon Technical Lead')
+    ending.font.name = 'Calibri (Body)'
+    ending.font.size = Pt(11)
+elif getpass.getuser() == 'mking':
+    ending = document.add_paragraph().add_run(
+        'Michael King \nMonsoon Collaboration Team Member')
+    ending.font.name = 'Calibri (Body)'
+    ending.font.size = Pt(11)
 # document.add_page_break()
 
 document.save(f'Monsoon2 Weekly Report - {friday}.docx')
+
+print('---------------------------------------------')
+print(f'Weekly report for {friday} has been created')
+print('---------------------------------------------')
