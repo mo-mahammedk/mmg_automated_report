@@ -3,6 +3,7 @@ from docx import Document
 from docx.shared import Cm, Pt
 from friday import friday, worded
 import getpass
+# import markdown
 
 document = Document()
 style = document.styles['Normal']
@@ -43,22 +44,16 @@ planned.font.size = Pt(11)
 planned.bold = True
 planned.underline = True
 # Insert from docs any planned maintence
-file = open('planned.txt', 'r')
-read = file.readlines()
-modified = []
-
-for line in read:
-    if line[-1] == '\n':
-        modified.append(line[:-1])
-    else:
-        modified.append(line)
+with open('planned.txt', 'r') as f:
+   lines = f.read()
     
-remove = str(modified).replace('[', '').replace(']', '').replace("'", "")#.replace(',', '')
+remove = str(lines).replace('[', '').replace(']', '').replace("'", "").replace(',', '')
 plannedlist = document.add_paragraph().add_run(
     f'{remove}')
 
 plannedlist.font.name = 'Calibri (Body)'
 plannedlist.font.size = Pt(11)
+
 
 # Unplanned Maintenance
 unplanned = document.add_paragraph().add_run(
@@ -68,22 +63,16 @@ unplanned.font.size = Pt(11)
 unplanned.bold = True
 unplanned.underline = True
 # Insert from docs any unplanned maintence
-file2 = open('unplanned.txt', 'r')
-read2 = file2.readlines()
-modified2 = []
-
-for line in read2:
-    if line[-1] == '\n':
-        modified2.append(line[:-1])
-    else:
-        modified2.append(line)
+with open('unplanned.txt', 'r') as f2:
+   lines2 = f2.read()
     
-remove2 = str(modified2).replace('[', '').replace(']', '').replace("'", "")#.replace(',', '')
+remove2 = str(lines2).replace('[', '').replace(']', '').replace("'", "").replace(',', '')
 unplannedlist = document.add_paragraph().add_run(
     f'{remove2}')
 
 unplannedlist.font.name = 'Calibri (Body)'
 unplannedlist.font.size = Pt(11)
+
 
 # Upcoming Maintenance
 upcoming = document.add_paragraph().add_run(
@@ -93,22 +82,16 @@ upcoming.font.size = Pt(11)
 upcoming.bold = True
 upcoming.underline = True
 # Insert from docs any Upcoming maintence
-file3 = open('upcoming.txt', 'r')
-read3 = file3.readlines()
-modified3 = []
-
-for line in read3:
-    if line[-1] == '\n':
-        modified3.append(line[:-1])
-    else:
-        modified3.append(line)
+with open('upcoming.txt', 'r') as f3:
+   lines3 = f3.read()
     
-remove3 = str(modified3).replace('[', '').replace(']', '').replace("'", "")#.replace(',', '')
+remove3 = str(lines3).replace('[', '').replace(']', '').replace("'", "").replace(',', '')
 upcominglist = document.add_paragraph().add_run(
     f'{remove3}')
 
 upcominglist.font.name = 'Calibri (Body)'
 upcominglist.font.size = Pt(11)
+
 
 # Emtpy line
 document.add_paragraph().add_run(
