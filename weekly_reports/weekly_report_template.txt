@@ -1,0 +1,10 @@
+Dear Jess,
+
+Please find attached the Monsoon2 Service Report for this last week. 
+
+Routine patching of the post-processor and MASS system took place this week, with no significant events to report.
+
+MASS and Monsoon return to a Green RAG status.
+
+Have a good weekend,
+Mahammed

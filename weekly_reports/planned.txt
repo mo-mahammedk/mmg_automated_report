@@ -1,1 +1,2 @@
-- None
+- Tuesday 20th February 2024 09:00 - 11:00 GMT - monthly security patching of the Monsoon2 post-processor server may need a reboot and associated twenty minutes of unavailability (CHG0111198). No reboot of the Post-processor was required.
+- Wednesday 24th January 2024 10:00 - 12:00 GMT - monthly security patching of MASS in order to apply RHEL security patching (CHG0112379). Between 10:00 and 12:00 all MOOSE 'PUT, 'GET', 'SELECT' and 'FILTER' commands failed. The patching overran slightly however, there were no reports of disruption from users.
